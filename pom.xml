@@ -23,6 +23,13 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
+		
+<!-- https://mvnrepository.com/artifact/org.sonarsource.scanner.maven/sonar-maven-plugin -->
+<dependency>
+    <groupId>org.sonarsource.scanner.maven</groupId>
+    <artifactId>sonar-maven-plugin</artifactId>
+    <version>3.7.0.1746</version>
+</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -33,13 +40,6 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.sonarsource.scanner.maven/sonar-maven-plugin -->
-<dependency>
-    <groupId>org.sonarsource.scanner.maven</groupId>
-    <artifactId>sonar-maven-plugin</artifactId>
-    <version>3.7.0.1746</version>
-</dependency>
-
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -88,28 +88,27 @@
 			<artifactId>jacoco-maven-plugin</artifactId>
 			<version>0.8.3</version>
 		</dependency>
-		
-      </dependencies>
-	<distributionManagement>
-                     <snapshotRepository>
-                     <id>nexus</id>
-                     <url>http://18.188.212.54:8081/nexus/content/repositories/snapshots</url>
-                     </snapshotRepository>
-         </distributionManagement>
 
+	</dependencies>
+<distributionManagement>
+  <snapshotRepository>
+    <id>nexus</id>
+    <url>http://18.188.212.54:8081/nexus/content/repositories/snapshots</url>
+  </snapshotRepository>
+</distributionManagement>
 	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			
 			<!-- https://mvnrepository.com/artifact/org.sonarsource.scanner.maven/sonar-maven-plugin -->
-                      <plugin>
-                          <groupId>org.sonarsource.scanner.maven</groupId>
-                          <artifactId>sonar-maven-plugin</artifactId>
-                          <version>3.7.0.1746</version>
-                      </plugin>
-
+<plugin>
+    <groupId>org.sonarsource.scanner.maven</groupId>
+    <artifactId>sonar-maven-plugin</artifactId>
+    <version>3.7.0.1746</version>
+</plugin>
 			<plugin>
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>
