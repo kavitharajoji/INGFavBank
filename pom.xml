@@ -33,23 +33,12 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.sonarsource.scanner.maven/sonar-maven-plugin -->
-              <dependency>
-                <groupId>org.sonarsource.scanner.maven</groupId>
-                <artifactId>sonar-maven-plugin</artifactId>
-                <version>3.7.0.1746</version>
-              </dependency>
-	      <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-deploy-plugin -->
-           <dependency>
-              <groupId>org.apache.maven.plugins</groupId>
-              <artifactId>maven-deploy-plugin</artifactId>
-              <version>3.0.0-M1</version>
-           </dependency>
-           <dependency>
-	      <groupId>org.springframework.boot</groupId>
-	      <artifactId>spring-boot-devtools</artifactId>
-	       <scope>runtime</scope>
-		<optional>true</optional>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+			<optional>true</optional>
 		</dependency>
 		<dependency>
 			<groupId>mysql</groupId>
@@ -94,31 +83,13 @@
 		</dependency>
 
 	</dependencies>
-<distributionManagement>
-  <snapshotRepository>
-    <id>nexus</id>
-    <url>http://18.188.212.54:8081/nexus/content/repositories/snapshots</url>
-  </snapshotRepository>
-</distributionManagement>
+
 	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-			<!-- https://mvnrepository.com/artifact/org.sonarsource.scanner.maven/sonar-maven-plugin -->
-               <plugin>
-                   <groupId>org.sonarsource.scanner.maven</groupId>
-		       <artifactId>sonar-maven-plugin</artifactId>
-		       <version>3.7.0.1746</version>
-               </plugin>
-                <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-deploy-plugin -->
-              <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-deploy-plugin</artifactId>
-               <version>3.0.0-M1</version>
-               </plugin>
-
 			<plugin>
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>
