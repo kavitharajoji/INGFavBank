@@ -9,18 +9,18 @@ git url:'https://github.com/kavitharajoji/INGFavBank.git'
 }
 stage('Build') {
 steps {
-                        sh"mvn clean package -Dmaven.test.skip=true"
+    sh'/opt/maven/bin/mvn clean package -Dmaven.test.skip=true'
 }
 }
 stage('Build Analysis') {
           steps {
-withSonarQubeEnv('gate1')  
+withSonarQubeEnv('sonar')  
                   {
-                 sh '/opt/maven/bin/mvn clean verify sonar:sonar'
+    sh '/opt/maven/bin/mvn clean verify sonar:sonar'
                 }
   }
          }
-stage("Quality Gate") {
+stage('Quality Gate') {
             steps {
               timeout(time: 5, unit: 'MINUTES') {
                 waitForQualityGate abortPipeline: true
@@ -29,12 +29,12 @@ stage("Quality Gate") {
           }
 stage('Deploy') {
 steps {
-                        sh"/opt/maven/bin/mvn clean deploy -Dmaven.test.skip=true"
+    sh'/opt/maven/bin/mvn clean deploy -Dmaven.test.skip=true'
 }
 }
 stage('Release') {
 steps {
-                        sh"export JENKINS_NODE_COOKIE=dontKillMe; nohup java -jar $WORKSPACE/target/*.jar &"
+    sh'export JENKINS_NODE_COOKIE=dontKillMe; nohup java -jar $WORKSPACE/target/*.jar &'
 }
 }
 }
